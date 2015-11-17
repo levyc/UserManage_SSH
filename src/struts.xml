@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.objectFactory" value="spring" />
+<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.i18n.reload" value="true" />
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <constant name="struts.custom.i18n.resources" value="globalMessages" />
+	<constant name="struts.url.includeParams" value="none" />
+	<constant name="struts.ui.theme" value="xhtml"></constant>
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="login" class="/com/integration/action/LoginAction">
+            <result name="SUCCESS">/success.jsp</result>
+            <result name="page">/error.jsp</result>
+        </action>  
+    </package>
+</struts>
