@@ -1,0 +1,20 @@
+SSH整合开发--用户管理系统
+	  --0.环境的搭建
+	  		---a.spring和hibernate的整合
+	  		---b.
+      --1.数据库的实现
+      		---a.建表：id，name,password,type
+      --2.Hibernate持久层的设计
+      		---a.编写持久化类
+      		---b.编写映射文件
+      --3.Dao层设计
+      		---a.编写Dao层接口
+      		---b.编写Dao层接口实现类
+      --4.业务逻辑层的设计
+      		---a.编写service层接口
+      		---b.编写service层接口的实现类
+      		---c.配置spring的配置文件，为service的实现类注入dao组件
+   	  --5.完成用户登录的设计--表现层Struts2
+   	  		---a.编写用户登录action类
+   	  		---b.编写用户登录login界面jsp文件
+   	  		---c.配置spring配置文件和web.xml和	struts.xml
