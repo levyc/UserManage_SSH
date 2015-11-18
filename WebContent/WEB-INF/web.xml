@@ -5,7 +5,7 @@
 
     <param-name >contextConfigLocation </param-name>
 
-    <param-value >/WEB-INF/classes/applicationContext.xml </param-value>
+    <param-value >/WEB-INF/applicationContext.xml</param-value>
 
 </context-param>
 <listener>
@@ -15,9 +15,13 @@
  </listener >
     <filter>
   <filter-name>struts2</filter-name>
-  <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
- </filter>
+  <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
  
+ <init-param>
+<param-name>config</param-name>
+<param-value>struts-default.xml,struts-plugin.xml,struts.xml</param-value>
+</init-param>
+</filter>
  <filter-mapping>
   <filter-name>struts2</filter-name>
   <url-pattern>/*</url-pattern>

@@ -9,10 +9,10 @@
     <constant name="struts.custom.i18n.resources" value="globalMessages" />
 	<constant name="struts.url.includeParams" value="none" />
 	<constant name="struts.ui.theme" value="xhtml"></constant>
-    <package name="default" namespace="/" extends="struts-default">
-        <action name="login" class="/com/integration/action/LoginAction">
-            <result name="SUCCESS">/success.jsp</result>
-            <result name="page">/error.jsp</result>
+    <package name="default"  extends="struts-default">
+        <action name="login" class="userAction">
+            <result >/success.jsp</result>
+            <result name="fail">/error.jsp</result>
         </action>  
     </package>
 </struts>

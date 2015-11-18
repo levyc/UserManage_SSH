@@ -7,6 +7,7 @@ import com.levy.hibernateClass.User;
 
 public class ServiceImp implements Service{
     private UserDaoImp  userDaoImp;
+    public static final int test =1 ;
 	public void setUserDaoImp(UserDaoImp userDaoImp) {
 		this.userDaoImp = userDaoImp;
 	}

@@ -4,7 +4,7 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 <!-- 配置数据源 -->
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource_" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName">
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
@@ -16,13 +16,13 @@
 			<value>root</value>
 		</property>
 		<property name="password">
-			<value>root</value>
+			<value></value>
 		</property>
 	</bean>	
 	<!-- 配置sessionFactory-->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource" >
-			<ref local="dataSource"/>
+			<ref local="dataSource_"/>
 		</property>
 		<!-- 配置Hibernate的属性 -->
 		<property name="hibernateProperties">
@@ -34,17 +34,21 @@
 		<!-- 指定HIbernate映射文件的路径 -->
 		<property name="mappingResources">
 			<list>
-				<value>com/integration/entity/User.hbm.xml</value>
+				<value>com/levy/hibernateClass/User.hbm.xml</value>
 			</list>
 		</property>
  	</bean>
- 	<bean id="userDaoImp_" class="/com/levy/Dao/UserDaoImp"></bean>
- 	<bean id="userService" class="/com/levy/service/ServiceImp">
+ 	<bean id="userDaoImp_" class="com.levy.Dao.UserDaoImp">
+ 	<property name="sessionFactory">
+	 		<ref bean="sessionFactory"/>
+	 	</property>
+ 	</bean>
+ 	<bean id="userService" class="com.levy.service.ServiceImp">
  	<property name="userDaoImp">
  	<ref bean="userDaoImp_"/>
  	</property>
  	</bean>
- 	<bean id="userAction" class="/com/levy/Login/LoginAction">
+ 	<bean id="userAction" class="com.levy.Login.LoginAction">
  	  <property name="serviceImp">
  	  <ref bean="userService"/>
  	  </property>

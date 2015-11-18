@@ -9,7 +9,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 public class LoginAction extends ActionSupport {
-	private ServiceImp serviceImp;
+	public ServiceImp serviceImp;
+
+	public ServiceImp getServiceImp() {
+		return serviceImp;
+	}
 	public void setServiceImp(ServiceImp serviceImp) {
 		this.serviceImp = serviceImp;
 	}
@@ -38,18 +42,20 @@ public class LoginAction extends ActionSupport {
 	}
 	public String execute()//用findall方法找出所有用户，去与登录信息匹配
 	{
-		List<User> users = serviceImp.findAllUser();
-	    Iterator<User> iterator=users.iterator();
+		System.out.println(serviceImp);
 	    User user_  = new User();
+	    List<User> users = serviceImp.findAllUser();
+	    Iterator<User> iterator=users.iterator();
 	    while(iterator.hasNext())
 	    {
 	    	user_ =(User)iterator.next();
 	    	if(name.trim().equals(user_.getName())&&password.trim().equals(user_.getPassword())&&type.trim().equals(user_.getType()))
 	    	
 	             return  SUCCESS;
-	    		else return page ;
+	    		else return "fail" ;
 	    }
-		return  page;
+		return  "fail";
+		
 	}
     
 }
